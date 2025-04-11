@@ -23,8 +23,12 @@ int	get_cor_operation(va_list args, unsigned int index)
 	diff_op[4] = op_putnbr;
 	diff_op[5] = op_put_un_nbr;
 	diff_op[6] = op_put_hex_lower;
-	//diff_op[7] = op_put_hex_upper;
-
+	diff_op[7] = op_put_hex_upper;
+	if (index == 8)
+	{
+		write (1, "%", 1);
+		return (1);
+	}
 	return (diff_op[index](args));
 }
 
@@ -72,3 +76,36 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
+
+// int     main(void)
+// {
+//     ft_printf("%d\n", ft_printf("%X\n", 10));
+//     printf("%d\n", printf("%X\n", 10));
+// }
+
+// int     main(void)
+// {
+//     ft_printf("%d\n", ft_printf("%%%%%%%%%%\n"));
+// 	printf("%d\n", printf("%%%%%%%%%%\n"));
+// }
+/*
+int     main(void)
+{
+	ft_printf("%d\n", ft_printf("%p\n", 0));
+    printf("%d\n", printf("%p\n", 0));
+}*/
+/*
+int     main(void)
+{
+    ft_printf("%d\n", ft_printf("%d\n", -2147483648));
+	printf("%d\n", printf("%ld\n", -2147483648));
+}*/
+/*
+int	main()
+{
+	int	a = -42;
+	int count = ft_printf("Number: %d\n", a);
+	printf("Printed count: %d\n", count);
+	//ft_printf("%d\n", ft_printf("%d\n", a));
+	printf("%d\n", printf("%d\n", 42));
+}*/
